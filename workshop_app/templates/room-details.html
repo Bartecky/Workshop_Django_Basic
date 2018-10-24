@@ -1,0 +1,8 @@
+{% extends 'base.html'%}
+
+{% block content %}
+    <p>Room's name :{{ object.name }}</p>
+    <p>Capacity : {{ object.capacity }}</p>
+    <p>Active : {{ object.is_active }}</p>
+    <p>Available: {{ object.pojector_is_available }}</p>
+{% endblock %}
