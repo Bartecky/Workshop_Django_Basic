@@ -9,5 +9,18 @@ class RoomModelForm(forms.ModelForm):
             'name',
             'capacity',
             'pojector_is_available',
-            'is_active'
+            'is_active',
+        ]
+
+
+class ReservationModelForm(forms.ModelForm):
+    date = forms.DateField()
+    comment = forms.CharField(required=False)
+
+    class Meta:
+        model = Reservation
+        fields = [
+            'date',
+            'room',
+            'comment',
         ]

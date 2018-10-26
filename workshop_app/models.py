@@ -1,5 +1,4 @@
 from django.db import models
-from django.urls import reverse
 
 
 # Create your models here.
@@ -15,16 +14,11 @@ class Room(models.Model):
     def __str__(self):
         return '{}'.format(self.name)
 
-    def get_absolute_url(self):
-        return reverse('room-details', kwargs={'id': self.id})
-
 
 class Reservation(models.Model):
     date = models.DateField()
     room = models.ForeignKey(Room, on_delete=models.CASCADE)
-    comment = models.TextField(null=True)
-    date_created = models.DateTimeField(auto_now_add=True)
-    date_modified = models.DateTimeField(auto_now=True)
+    comment = models.TextField(null=True, blank=True)
 
     def __str__(self):
         return '{} on {}'.format(self.room, self.date)
