@@ -16,10 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from workshop_app.views import RoomListView, \
-                                RoomDetailView, \
-                                RoomCreateView, \
-                                RoomUpdateView, \
-                                RoomDeleteView
+                               RoomDetailView, \
+                               RoomCreateView, \
+                               RoomUpdateView, \
+                               RoomDeleteView, \
+                               ReservationCreateView, \
+                               ReservationListView, \
+                               ReservationDeleteView
+
+
 
 
 urlpatterns = [
@@ -29,4 +34,8 @@ urlpatterns = [
     path('room/<int:id>', RoomDetailView.as_view()),
     path('room/modify/<int:id>', RoomUpdateView.as_view()),
     path('room/delete/<int:id>', RoomDeleteView.as_view()),
+    path('reservation/', ReservationListView.as_view()),
+    path('reservation/new', ReservationCreateView.as_view()),
+    path('reservation/delete/<int:id>', ReservationDeleteView.as_view())
+
 ]
