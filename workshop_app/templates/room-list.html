@@ -1,40 +1,42 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div>
-    <table border="1">
-        <tr style="background-color: limegreen">
-            <th>#</th>
-            <th>Name</th>
-            <th></th>
-            <th></th>
-            <th>Capacity</th>
-            <th>Projector</th>
-            <th>Active</th>
-        </tr>
-        {% for object in object_list %}
+    <div>
+        <table>
             <tr>
-                <td>{{ forloop.counter}}</td>
-                <td>{{ object }}</td>  {# link #}
-                <td><a href="room/{{ object.id }}">Details</a></td>
-                <td>{{ object.capacity }}</td>
-                <td>
-                    {% if object.pojector_is_available %}
-                        Yes
-                    {% else %}
-                        No
-                    {% endif %}
-                </td>
-                <td>
-                    {% if object.is_active %}
-                        Yes
-                    {% else %}
-                        No
-                    {% endif %}
-                </td>
+                <th>#</th>
+                <th>Name</th>
+                <th></th>
+                <th></th>
+                <th>Capacity</th>
+                <th>Projector</th>
+                <th>Active</th>
             </tr>
-        {% endfor %}
-    </table>
-    <input type="submit" name="submit" value="Add room">
-</div>
+            {% for object in object_list %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td><a href="/room/{{ object.id }}">{{ object }}</a></td>
+                    <td><a href="/room/modify/{{ object.id }}">Edit</a></td>
+                    <td><a href="/room/delete/{{ object.id }}">Delete</a></td>
+                    <td>{{ object.capacity }}</td>
+                    <td>
+                        {% if object.pojector_is_available %}
+                            Yes
+                        {% else %}
+                            No
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if object.is_active %}
+                            Yes
+                        {% else %}
+                            No
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+        <input type="button" onclick="location.href='/room/new'" value="Add room">
+        <input type="button" onclick="location.href='/reservation'" value="Check reservations">
+    </div>
 {% endblock %}
