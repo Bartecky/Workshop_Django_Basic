@@ -22,20 +22,22 @@ from workshop_app.views import RoomListView, \
                                RoomDeleteView, \
                                ReservationCreateView, \
                                ReservationListView, \
-                               ReservationDeleteView
+                               ReservationDeleteView, \
+                               SearchView
 
 
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', RoomListView.as_view(), name='home'),
-    path('room/new', RoomCreateView.as_view()),
-    path('room/<int:id>', RoomDetailView.as_view()),
-    path('room/modify/<int:id>', RoomUpdateView.as_view()),
-    path('room/delete/<int:id>', RoomDeleteView.as_view()),
-    path('reservation/', ReservationListView.as_view()),
-    path('reservation/new', ReservationCreateView.as_view()),
-    path('reservation/delete/<int:id>', ReservationDeleteView.as_view())
+    path('', RoomListView.as_view(), name='room-list-view'),
+    path('room/new', RoomCreateView.as_view(), name='room-create-view'),
+    path('room/<int:id>', RoomDetailView.as_view(), name='room-detail-view'),
+    path('room/modify/<int:id>', RoomUpdateView.as_view(), name='room-update-view'),
+    path('room/delete/<int:id>', RoomDeleteView.as_view(), name='room-delete-view'),
+    path('reservation/', ReservationListView.as_view(), name='reservation-list-view'),
+    path('reservation/new', ReservationCreateView.as_view(), name='reservation-create-view'),
+    path('reservation/delete/<int:id>', ReservationDeleteView.as_view(), name='reservation-delete-view'),
+    path('/search', SearchView.as_view(), name='search-view')
 
 ]

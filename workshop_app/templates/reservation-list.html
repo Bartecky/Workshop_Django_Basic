@@ -13,7 +13,7 @@
                 </tr>
             {% endfor %}
         </table>
-        <input type="button" onclick="location.href='new'" value="Add reservation">
-        <input type="button" onclick="location.href='/'" value="Back to Room List">
+        <input type="button" onclick="location.href='{% url 'reservation-create-view' %}'" value="Add reservation">
+        <input type="button" onclick="location.href='{% url 'reservation-list-view' %}'" value="Back to Room List">
     </div>
 {% endblock %}

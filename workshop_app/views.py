@@ -1,4 +1,4 @@
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, reverse
 from .models import Reservation, Room
 from .forms import RoomModelForm, ReservationModelForm
 from django.views.generic import ListView, DeleteView, CreateView, UpdateView, DetailView
@@ -23,7 +23,7 @@ class RoomCreateView(CreateView):
     form_class = RoomModelForm
 
     def get_success_url(self):
-        return '/'
+        return reverse('room-list-view')
 
 
 class RoomUpdateView(UpdateView):
@@ -35,7 +35,7 @@ class RoomUpdateView(UpdateView):
         return get_object_or_404(Room, id=id_)
 
     def get_success_url(self):
-        return '/'
+        return reverse('room-list-view')
 
 
 class RoomDeleteView(DeleteView):
@@ -46,7 +46,7 @@ class RoomDeleteView(DeleteView):
         return get_object_or_404(Room, id=id_)
 
     def get_success_url(self):
-        return '/'
+        return reverse('room-list-view')
 
 
 class ReservationListView(ListView):
@@ -59,7 +59,7 @@ class ReservationCreateView(CreateView):
     form_class = ReservationModelForm
 
     def get_success_url(self):
-        return '/'
+        return reverse('room-list-view')
 
 
 class ReservationDeleteView(DeleteView):
@@ -70,4 +70,4 @@ class ReservationDeleteView(DeleteView):
         return get_object_or_404(Reservation, id=id_)
 
     def get_success_url(self):
-        return '/reservation'
+        return reverse('reservation-list-view')
