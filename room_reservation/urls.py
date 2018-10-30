@@ -22,8 +22,7 @@ from workshop_app.views import RoomListView, \
                                RoomDeleteView, \
                                ReservationCreateView, \
                                ReservationListView, \
-                               ReservationDeleteView, \
-                               SearchView
+                               ReservationDeleteView
 
 
 
@@ -38,6 +37,5 @@ urlpatterns = [
     path('reservation/', ReservationListView.as_view(), name='reservation-list-view'),
     path('reservation/new', ReservationCreateView.as_view(), name='reservation-create-view'),
     path('reservation/delete/<int:id>', ReservationDeleteView.as_view(), name='reservation-delete-view'),
-    path('/search', SearchView.as_view(), name='search-view')
 
 ]
