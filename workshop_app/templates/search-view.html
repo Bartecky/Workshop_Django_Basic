@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form method="post" action=""> {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Search">
+    </form>
+    {% if rooms %}
+        {% for room in rooms %}
+            Room name: <a href="{% url 'room-detail-view' room.id %}">{{ room.name }}</a><br>
+            Capacity: {{ room.capacity }}<br>
+        {% endfor %}
+    {% endif %}
+    <input type="button" onclick="location.href='{% url 'room-list-view' %}'" value="Back">
+{% endblock %}

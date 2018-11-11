@@ -15,9 +15,9 @@
             {% for object in object_list %}
                 <tr>
                     <td>{{ forloop.counter }}</td>
-                    <td><a href="{% url 'room-detail-view' object.id %}"></a></td>
-                    <td><a href="{% url 'room-update-view' object.id %}"></a></td>
-                    <td><a href="{% url 'room-delete-view' object.id %}"></a></td>
+                    <td><a href="{% url 'room-detail-view' object.id %}">{{ object }}</a></td>
+                    <td><a href="{% url 'room-update-view' object.id %}">Update</a></td>
+                    <td><a href="{% url 'room-delete-view' object.id %}">Delete</a></td>
                     <td>{{ object.capacity }}</td>
                     <td>
                         {% if object.pojector_is_available %}
@@ -33,11 +33,14 @@
                             No
                         {% endif %}
                     </td>
+                    <td>
+
+                    </td>
                 </tr>
             {% endfor %}
         </table>
         <input type="button" onclick="location.href='{% url 'room-create-view' %}'" value="Add room">
         <input type="button" onclick="location.href='{% url 'reservation-list-view' %}'" value="Check reservations">
     </div>
-{#    <a href="{% url 'search-view' %}">Search</a>#}
+    <a href="{% url 'search-view' %}">Search</a>
 {% endblock %}

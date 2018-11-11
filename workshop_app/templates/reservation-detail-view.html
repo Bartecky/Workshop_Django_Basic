@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <p>Room: {{ object.room }}</p>
+    <p>Date: {{ object.date }}</p>
+    <p>Comment: {{ object.comment }}</p>
+    <p>Capacity: {{ object.room.capacity }}</p>
+    <a href="{% url 'room-list-view' %}">Back</a>
+{% endblock %}

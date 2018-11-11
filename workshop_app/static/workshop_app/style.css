@@ -1,15 +1,9 @@
-
-ul {
+ul.dropdownul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
     background-color: #333;
-}
-
-li {
-    float: right;
-    padding-right: 43px;
 }
 
 li a, .dropbtn {
@@ -53,7 +47,7 @@ li.dropdown {
 }
 
 body {
-    background-color: silver;
+    background-color: #e4feec;
 }
 
 h2, h3 {

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <p><strong>Room's name :{{ object.name }}</strong></p>
+    <p>Capacity : {{ object.capacity }}</p>
+    <p>Active : {{ object.is_active }}</p>
+    <p>Projector: {{ object.pojector_is_available }}</p>
+    <p>Reservations:<br>
+        {% if object.reservation_set %}
+            {% for reservation in object.reservation_set.all %}
+                {{ reservation.date }}<br>
+            {% endfor %}
+        {% else %}
+            <strong>No reservations!</strong>
+        {% endif %}
+    </p>
+    {% if object.is_active %}
+        <input type="button" onclick="location.href='{% url 'reservation-create-view' %}'" value="Reserve another day!">
+    {% else %}
+        Room isn't active now.
+    {% endif %}
+    <input type="button" onclick="location.href='{% url 'room-list-view' %}'" value="Back to list">
+{% endblock %}
